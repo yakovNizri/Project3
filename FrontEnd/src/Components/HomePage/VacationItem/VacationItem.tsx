@@ -83,15 +83,6 @@ function VacationItem({ vacations, user, followers, setVacations, getVacations }
                                 <div className="card-butAction-manage">
                                     <Button variant="warning" onClick={() => { setShowModalEvacation(true); setVacationEdit({ ...vacation }) }}>Edit</Button>
                                     <Button variant="danger" onClick={() => { setVacationToDelete(Number(vacation.id)); setShowConfirm(true); }}>Delete</Button>
-
-                                    <ConfirmModal
-                                        show={showConfirm}
-                                        onConfirm={() => {
-                                            if (vacationToDelete !== null) handleClickDeleteVacation(vacationToDelete);
-                                        }}
-                                        onCancel={() => setShowConfirm(false)}
-                                        message="Are you sure you want to delete the vacation?"
-                                    />
                                 </div>
                             ) : (
                                 (() => {
@@ -129,11 +120,21 @@ function VacationItem({ vacations, user, followers, setVacations, getVacations }
                 getVacations={getVacations}
                 vacationEdit={vacationEdit}
             ></EditVacationModal>
+            
             {alert.show && (
                 <div className={`alert alert-${alert.type} position-fixed bottom-0 end-0 m-4 shadow`} style={{ zIndex: 9999 }}>
                     {alert.message}
                 </div>
             )}
+
+            <ConfirmModal
+                show={showConfirm}
+                onConfirm={() => {
+                    if (vacationToDelete !== null) handleClickDeleteVacation(vacationToDelete);
+                }}
+                onCancel={() => setShowConfirm(false)}
+                message="Are you sure you want to delete the vacation?"
+            />
         </>
     );
 }
