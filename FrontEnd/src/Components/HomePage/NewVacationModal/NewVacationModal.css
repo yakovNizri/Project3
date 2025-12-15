@@ -1,0 +1,16 @@
+.imgCard {
+    height: 170px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px grey;
+}
+
+#imgContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.msgSubmitError{
+    color: red;
+    margin:15px;
+}

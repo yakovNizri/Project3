@@ -1,0 +1,99 @@
+.scroll-text {
+    line-height: 1.5em;
+    max-height: calc(1.5em * 5);
+    min-height: calc(1.5em * 5);
+    overflow-y: auto;
+    margin-top: 12px;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.custom-card {
+    width: 22rem;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    border: 1px solid #e8e8e8;
+    transition: transform 0.25s ease;
+}
+
+.imgCard {
+    height: 170px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1.2rem;
+}
+
+.titleAndPrice {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.card-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #2ecc71;
+}
+
+.card-time {
+    margin-top: 12px;
+    font-size: 0.92rem;
+}
+
+.card-butAction-manage {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.card-follower {
+    margin-top: 15px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: #f8f9fa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #e5e5e5;
+}
+
+.card-follower .card-countFollowering {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.card-follower .card-countFollowering .card-countFollowingValue {
+    font-weight: 700;
+}
+
+.card-butFollower {
+    background: #e0f7e9;
+    color: #28a745;
+    border: 1px solid #28a745;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.card-butUnFollower {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: 0.2s;
+}

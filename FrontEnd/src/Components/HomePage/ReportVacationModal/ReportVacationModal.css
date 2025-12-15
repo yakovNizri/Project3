@@ -1,0 +1,9 @@
+#exportFileCSV {
+    color: green;
+    cursor: pointer;
+}
+
+#canvaReport {
+    width: 100%;
+    height: 100%;
+}
