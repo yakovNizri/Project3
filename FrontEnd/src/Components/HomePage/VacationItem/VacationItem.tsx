@@ -16,6 +16,8 @@ function VacationItem({ vacations, user, followers, setVacations, getVacations }
 
     const [vacationEdit, setVacationEdit] = useState<vacation>();
 
+    const [vacationToDelete, setVacationToDelete] = useState<number | null>(null);
+
     const [alert, setAlert] = useState({ show: false, type: "", message: "" });
     const showAlert = (type: any, message: any) => {
         setAlert({ show: true, type, message });
@@ -46,7 +48,8 @@ function VacationItem({ vacations, user, followers, setVacations, getVacations }
 
     const handleClickDeleteVacation = (vid: number) => {
         deleteVacation(vid).then(() => {
-            setVacations([...vacations.filter(v => v.id !== String(vid))]);
+            setVacations([...vacations.filter(v => Number(v.id) !== vid)]);
+
             setShowConfirm(false);
             showAlert("success", "Vacation deleted!");
         }).catch(() => {
@@ -79,11 +82,13 @@ function VacationItem({ vacations, user, followers, setVacations, getVacations }
                             {user.isadmin ? (
                                 <div className="card-butAction-manage">
                                     <Button variant="warning" onClick={() => { setShowModalEvacation(true); setVacationEdit({ ...vacation }) }}>Edit</Button>
-                                    <Button variant="danger" onClick={() => setShowConfirm(true)}>Delete</Button>
+                                    <Button variant="danger" onClick={() => { setVacationToDelete(Number(vacation.id)); setShowConfirm(true); }}>Delete</Button>
 
                                     <ConfirmModal
                                         show={showConfirm}
-                                        onConfirm={() => handleClickDeleteVacation(Number(vacation.id))}
+                                        onConfirm={() => {
+                                            if (vacationToDelete !== null) handleClickDeleteVacation(vacationToDelete);
+                                        }}
                                         onCancel={() => setShowConfirm(false)}
                                         message="Are you sure you want to delete the vacation?"
                                     />
